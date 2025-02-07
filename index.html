@@ -5,8 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>College Saarthi</title>
     <style>
+        .signup and login {
+            float: right;
+            margin: 10px;
+            text-align: right;
+        }
+        
         .navbar {
-            background-color: #333;
+            background-color: #cdcaec;           
             overflow: hidden;
         }
         .navbar ul {
@@ -20,23 +26,46 @@
         }
         .navbar li a {
             display: block;
-            color: rgb(131, 11, 11);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: #b31dd8;
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
         }
         .navbar li a:hover {
-            background-color: #111;
+            background-color: #cca8e9;
+        }
+        .container {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #b31dd8;
+            border-radius: 10px;
+            background: linear-gradient(106.5deg, rgba(255, 215, 185, 0.91) 23%, rgba(223, 159, 247, 0.8) 93%);
+            color:#b31dd8;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
     </style>
 </head>
 <body>
+    
     <div class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="College Saarthi" width="100" height="100">
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="skills.html">Skills</a></li>
             <li><a href="library.html">Library</a></li>
             <li><a href="book_recommendation.html">Book recommendation</a></li>
+        </ul>
+        <div class="signup and login">
+            <a href="signup.html">Sign Up</a>
+            <a href="login.html">Login</a>
+        </div>
     </div>
+    <div class="container">
+        <h1>Welcome to College Saarthi</h1>
+        <p>College Saarthi is a platform for students to learn and grow. We provide a variety of resources to help students in their academic journey. We have a collection of books, videos, and other resources to help students learn new skills and concepts. We also provide personalized book recommendations to help students find books that match their interests and reading level. Our goal is to help students succeed in their academic journey and achieve their goals.</p>
+    </div>
+
 </body>
 </html>
