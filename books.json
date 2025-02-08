@@ -10,7 +10,7 @@
     { "department": "cse", "year": 1, "subject": "manufacturing_process", "books": ["Manufacturing Processes - P.N. Rao", "Workshop Technology - W.A.J. Chapman"] },
     { "department": "cse", "year": 1, "subject": "evs", "books": ["Environmental Studies - Erach Bharucha", "Textbook of Environmental Science - Anubha Kaushik"] },
 
-    { "department": "ece", "year": 1, "subject": "maths", "books": ["Higher Engineering Mathematics - B.S. Grewal", "Advanced Engineering Mathematics - Erwin Kreyszig"] },
+    { "department": "ece", "year": 1, "subject": "maths", "books": ["Higher Engineering Mathematics - B.S. Grewal", "Advanced Engineering Mathematics - Erwin Kreyszig", "Advanced Engineering Mathematics- V.P Mishra"] },
     { "department": "ece", "year": 1, "subject": "applied_physics", "books": ["Concepts of Modern Physics - Arthur Beiser", "Fundamentals of Physics - Resnick, Halliday"] },
     { "department": "ece", "year": 1, "subject": "applied_chemistry", "books": ["Engineering Chemistry - Jain & Jain", "Textbook of Engineering Chemistry - Shashi Chawla"] },
     { "department": "ece", "year": 1, "subject": "engineering_mechanics", "books": ["Engineering Mechanics - S. Timoshenko", "Engineering Mechanics - R. C. Hibbeler"] },
