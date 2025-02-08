@@ -1,0 +1,58 @@
+
+  [
+    { "department": "cse", "year": 1, "subject": "maths", "books": ["Higher Engineering Mathematics - B.S. Grewal", "Advanced Engineering Mathematics - Erwin Kreyszig"] },
+    { "department": "cse", "year": 1, "subject": "applied_physics", "books": ["Concepts of Modern Physics - Arthur Beiser", "Fundamentals of Physics - Resnick, Halliday"] },
+    { "department": "cse", "year": 1, "subject": "applied_chemistry", "books": ["Engineering Chemistry - Jain & Jain", "Textbook of Engineering Chemistry - Shashi Chawla"] },
+    { "department": "cse", "year": 1, "subject": "engineering_mechanics", "books": ["Engineering Mechanics - S. Timoshenko", "Engineering Mechanics - R. C. Hibbeler"] },
+    { "department": "cse", "year": 1, "subject": "electrical_science", "books": ["Basic Electrical Engineering - D.P. Kothari", "Principles of Electrical Engineering - V.K. Mehta"] },
+    { "department": "cse", "year": 1, "subject": "programming_in_c", "books": ["Let Us C - Yashwant Kanetkar", "Programming in ANSI C - E. Balagurusamy"] },
+    { "department": "cse", "year": 1, "subject": "communication_skills", "books": ["Effective Communication - Ashraf Rizvi", "Technical Communication - Meenakshi Raman"] },
+    { "department": "cse", "year": 1, "subject": "manufacturing_process", "books": ["Manufacturing Processes - P.N. Rao", "Workshop Technology - W.A.J. Chapman"] },
+    { "department": "cse", "year": 1, "subject": "evs", "books": ["Environmental Studies - Erach Bharucha", "Textbook of Environmental Science - Anubha Kaushik"] },
+
+    { "department": "ece", "year": 1, "subject": "maths", "books": ["Higher Engineering Mathematics - B.S. Grewal", "Advanced Engineering Mathematics - Erwin Kreyszig"] },
+    { "department": "ece", "year": 1, "subject": "applied_physics", "books": ["Concepts of Modern Physics - Arthur Beiser", "Fundamentals of Physics - Resnick, Halliday"] },
+    { "department": "ece", "year": 1, "subject": "applied_chemistry", "books": ["Engineering Chemistry - Jain & Jain", "Textbook of Engineering Chemistry - Shashi Chawla"] },
+    { "department": "ece", "year": 1, "subject": "engineering_mechanics", "books": ["Engineering Mechanics - S. Timoshenko", "Engineering Mechanics - R. C. Hibbeler"] },
+    { "department": "ece", "year": 1, "subject": "electrical_science", "books": ["Basic Electrical Engineering - D.P. Kothari", "Principles of Electrical Engineering - V.K. Mehta"] },
+    { "department": "ece", "year": 1, "subject": "programming_in_c", "books": ["Let Us C - Yashwant Kanetkar", "Programming in ANSI C - E. Balagurusamy"] },
+    { "department": "ece", "year": 1, "subject": "communication_skills", "books": ["Effective Communication - Ashraf Rizvi", "Technical Communication - Meenakshi Raman"] },
+    { "department": "ece", "year": 1, "subject": "manufacturing_process", "books": ["Manufacturing Processes - P.N. Rao", "Workshop Technology - W.A.J. Chapman"] },
+    { "department": "ece", "year": 1, "subject": "evs", "books": ["Environmental Studies - Erach Bharucha", "Textbook of Environmental Science - Anubha Kaushik"] },
+
+    { "department": "it", "year": 1, "subject": "maths", "books": ["Higher Engineering Mathematics - B.S. Grewal", "Advanced Engineering Mathematics - Erwin Kreyszig"] },
+    { "department": "it", "year": 1, "subject": "applied_physics", "books": ["Concepts of Modern Physics - Arthur Beiser", "Fundamentals of Physics - Resnick, Halliday"] },
+    { "department": "it", "year": 1, "subject": "applied_chemistry", "books": ["Engineering Chemistry - Jain & Jain", "Textbook of Engineering Chemistry - Shashi Chawla"] },
+    { "department": "it", "year": 1, "subject": "engineering_mechanics", "books": ["Engineering Mechanics - S. Timoshenko", "Engineering Mechanics - R. C. Hibbeler"] },
+    { "department": "it", "year": 1, "subject": "electrical_science", "books": ["Basic Electrical Engineering - D.P. Kothari", "Principles of Electrical Engineering - V.K. Mehta"] },
+    { "department": "it", "year": 1, "subject": "programming_in_c", "books": ["Let Us C - Yashwant Kanetkar", "Programming in ANSI C - E. Balagurusamy"] },
+    { "department": "it", "year": 1, "subject": "communication_skills", "books": ["Effective Communication - Ashraf Rizvi", "Technical Communication - Meenakshi Raman"] },
+    { "department": "it", "year": 1, "subject": "manufacturing_process", "books": ["Manufacturing Processes - P.N. Rao", "Workshop Technology - W.A.J. Chapman"] },
+    { "department": "it", "year": 1, "subject": "evs", "books": ["Environmental Studies - Erach Bharucha", "Textbook of Environmental Science - Anubha Kaushik"] },
+
+    
+      { "department": "cse", "year": 2, "subject": "ds", "books": ["Data Structures & Algorithms - Narasimha Karumanchi", "Data Structures using C - Reema Thareja"] },
+      { "department": "cse", "year": 2, "subject": "algo", "books": ["Introduction to Algorithms - Cormen", "Algorithm Design - Jon Kleinberg"] },
+      { "department": "cse", "year": 2, "subject": "cn", "books": ["Computer Networking - Kurose & Ross", "Data Communications & Networking - Forouzan"] },
+      { "department": "cse", "year": 2, "subject": "os", "books": ["Operating System Concepts - Silberschatz", "Modern Operating Systems - Andrew Tanenbaum"] },
+      { "department": "cse", "year": 2, "subject": "dbms", "books": ["Database System Concepts - Korth", "Fundamentals of Database Systems - Elmasri"] },
+      { "department": "cse", "year": 2, "subject": "oops", "books": ["Object-Oriented Programming with C++ - E. Balagurusamy", "Head First Java - Kathy Sierra"] },
+  
+      { "department": "ece", "year": 2, "subject": "de", "books": ["Digital Design - M. Morris Mano", "Fundamentals of Digital Logic - Brown & Vranesic"] },
+      { "department": "ece", "year": 2, "subject": "ss", "books": ["Signals and Systems - Alan V. Oppenheim", "Linear Systems and Signals - B.P. Lathi"] },
+      { "department": "ece", "year": 2, "subject": "ac", "books": ["Microelectronic Circuits - Sedra & Smith", "Analog Electronics - K.R. Botkar"] },
+      { "department": "ece", "year": 2, "subject": "cs", "books": ["Communication Systems - Simon Haykin", "Principles of Communication - Taub & Schilling"] },
+      { "department": "ece", "year": 2, "subject": "mp", "books": ["Microprocessor Architecture - Ramesh Gaonkar", "Advanced Microprocessors - Ray & Bhurchandi"] },
+  
+      { "department": "it", "year": 2, "subject": "ds", "books": ["Data Structures & Algorithms - Narasimha Karumanchi", "Data Structures using C - Reema Thareja"] },
+      { "department": "it", "year": 2, "subject": "algo", "books": ["Introduction to Algorithms - Cormen", "Algorithm Design - Jon Kleinberg"] },
+      { "department": "it", "year": 2, "subject": "web", "books": ["HTML & CSS - Jon Duckett", "JavaScript: The Good Parts - Douglas Crockford"] },
+      { "department": "it", "year": 2, "subject": "se", "books": ["Software Engineering - Ian Sommerville", "Fundamentals of Software Engineering - Rajib Mall"] },
+      { "department": "it", "year": 2, "subject": "co", "books": ["Computer Organization & Architecture - William Stallings", "Computer System Architecture - M. Morris Mano"] }
+  
+  
+]
+
+
+
+  

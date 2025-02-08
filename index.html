@@ -4,11 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>College Saarthi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha384-5s1o7E9eZ6m8w6+3R5nZ3" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <style>
-        .signup and login {
+        .signup-and-login {
             float: right;
             margin: 10px;
             text-align: right;
+            display:flex;
         }
         
         .navbar {
@@ -23,17 +28,22 @@
         }
         .navbar li {
             float: left;
+            margin: 10px;
+            display:flex;
+            
         }
         .navbar li a {
             display: block;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             color: #b31dd8;
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
+            font-family: "Quicksand", serif;
+            transition: transform 0.5s;
         }
         .navbar li a:hover {
             background-color: #cca8e9;
+            transform:scale(1.1);
         }
         .container {
             margin: 20px;
@@ -42,30 +52,187 @@
             border-radius: 10px;
             background: linear-gradient(106.5deg, rgba(255, 215, 185, 0.91) 23%, rgba(223, 159, 247, 0.8) 93%);
             color:#b31dd8;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-family: "Quicksand", serif;
+            font-optical-sizing: auto;
+            font-weight:400;
+            font-style: normal;
+            transition: transform 0.5s;
+        }
+        .container h1{
+            text-align: center;
+        }
+        .container:hover{
+            transform:scale(1.1);
+            background-color: #cca8e9;
+        }
+        button{
+            background-color: #b31dd8;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            width: 300px;
+            height:100px;
+            font-family: "Quicksand", serif;
+            transition: transform 0.5s;
+            font-size: 20px;
+        }
+        button:hover{
+            background-color: #250341;
+            transform: scale(1.1);
+        }
+        .courses li{
+            list-style: none;
+            display: inline;
+        }
+        p{
+            color:#b31dd8;
+            font-family: "Quicksand", serif;
+            font-size: large;
+            text-align: center;
+        }
+        
+        body{
+            background-image: url(https://img.freepik.com/free-vector/abstract-purple-background-with-sketchy-wavy-lines_1108-697.jpg);
+            
+        }
+        .paid-courses li{
+            list-style: none;
+            display: inline;
+        }
+        body {
+            margin: 0;
+            height: 200vh; /* Make page scrollable */
+            overflow-y: scroll; 
+            background-color: #f0f0f0;
+            padding-bottom: 60px;
+        }
+
+        
+        .cursor-effect {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: rgb(163, 8, 224);
+            border-radius: 50%;
+            pointer-events: none;
+            transition: transform 0.1s ease-out;
+        }
+
+        /* Down arrow */
+        .down-arrow {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 50px;
+            color: rgb(51, 6, 77);
+            cursor: pointer;
+            animation: bounce 1s infinite alternate;
+        }
+
+        @keyframes bounce {
+            from { transform: translateX(-50%) translateY(0); }
+            to { transform: translateX(-50%) translateY(10px); }
+        }
+        footer{
+            background-color: #1502eb;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 <body>
-    
+    <div class="cursor-effect"></div>
+
+    <!-- Scroll down arrow -->
+    <div class="down-arrow" onclick="scrollDown()">⬇</div>
+
+   
+    <header>
     <div class="navbar">
-        <div class="logo">
-            <img src="logo.png" alt="College Saarthi" width="100" height="100">
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="skills.html">Skills</a></li>
             <li><a href="library.html">Library</a></li>
             <li><a href="book_recommendation.html">Book recommendation</a></li>
+            <div class ="signup-and-login">
+            <li><a href="signup.html">Sign Up</a></li>
+            <li><a href="login.html">Login</a></li>
+            </div>
         </ul>
-        <div class="signup and login">
-            <a href="signup.html">Sign Up</a>
-            <a href="login.html">Login</a>
-        </div>
+        
     </div>
+    </header>
     <div class="container">
         <h1>Welcome to College Saarthi</h1>
         <p>College Saarthi is a platform for students to learn and grow. We provide a variety of resources to help students in their academic journey. We have a collection of books, videos, and other resources to help students learn new skills and concepts. We also provide personalized book recommendations to help students find books that match their interests and reading level. Our goal is to help students succeed in their academic journey and achieve their goals.</p>
     </div>
+    <p>Explore Our free Courses!</p>
+    <div class="courses">
+    <ul>
+    <li><button>
+        Sem 1
+    </button></li>
+    <li><button>
+        Sem 2</button></li>
+    <li><button> Sem 3</button></li>
+    <li><button> Sem 4</button></li>
+    </ul>
+    </div>
+    <div class="paid-courses">
+    <p>Upgrade Yourself with these Courses at A minimal cost!</p>
+    <ul>
+        <li><button>
+            Sem 1
+        </button></li>
+        <li><button>
+            Sem 2</button></li>
+        <li><button> Sem 3</button></li>
+        <li><button> Sem 4</button></li>
+        </ul>
+    </div>
+    <footer style="
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    backdrop-filter: blur(10px);
+">
+    <p style="color: #8a2be2; font-weight: bold;">College Saarthi &copy; 2025 | All Rights Reserved</p>
+    <div>
+        <a href="#" style="color: #8a2be2; margin: 0 10px; text-decoration: none;">About</a> |
+        <a href="#" style="color: #8a2be2; margin: 0 10px; text-decoration: none;">Contact</a> |
+        <a href="#" style="color: #8a2be2; margin: 0 10px; text-decoration: none;">Privacy Policy</a>
+    </div>
+    <div style="margin-top: 10px;">
+        <a href="#" style="color: #8a2be2; margin: 0 10px; text-decoration: none;">Facebook</a> |
+        <a href="#" style="color: #8a2be2; margin: 0 10px; text-decoration: none;">Twitter</a> |
+        <a href="#" style="color: #8a2be2; margin: 0 10px; text-decoration: none;">Instagram</a>
+    </div>
+</footer>
 
+    
+    <script>
+       const cursor = document.querySelector(".cursor-effect");
+
+document.addEventListener("mousemove", (e) => {
+    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+});
+
+// Scroll down function
+function scrollDown() {
+    window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
+}
+    </script>
 </body>
 </html>

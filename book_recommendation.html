@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommendation System</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; background-image: url(https://img.freepik.com/free-vector/abstract-purple-background-with-sketchy-wavy-lines_1108-697.jpg); }
+        select, button { margin: 10px; padding: 8px; }
+        #results { margin-top: 20px; font-weight: bold; }
+        h2{ color:rgb(49, 4, 92);font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
+        body {
+            margin: 0;
+            overflow: hidden; /* Prevents scrollbars */
+            background-color: #f0f0f0;
+        }
+
+        .trail {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: purple;
+            border-radius: 50%;
+            pointer-events: none; /* Prevents interaction */
+            opacity: 0.7;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease-out;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h2>Book Recommendation System</h2>
+    
+    <label for="department">Department:</label>
+    <select id="department">
+        <option value="cse">Computer Science</option>
+        <option value="ece">Electronics</option>
+        <option value="it">IT</option>
+    </select>
+
+    <label for="year">Year:</label>
+    <select id="year">
+        <option value="1">1st Year</option>
+        <option value="2">2nd Year</option>
+        <option value="3">3rd Year</option>
+        <option value="4">4th Year</option>
+    </select>
+
+    <label for="subject">Subject:</label>
+    <select id="subject">
+        <option value="maths">Mathematics</option>
+        <option value="applied_physics">Applied Physics</option>
+        <option value="applied_chemistry">Applied Chemistry</option>
+        <option value="engineering_mechanics">Engineering Mechanics</option>
+        <option value="electrical_science">Electrical Science</option>
+        <option value="programming_in_c">Programming in C</option>
+        <option value="communication_skills">Communication Skills</option>
+        <option value="manufacturing_process">Manufacturing Process</option>
+        <option value="evs">Environmental Studies</option>
+        <option value="ds">Data Structures</option>
+        <option value="algo">Algorithms</option>
+        <option value="cn">Computer Networks</option>
+        <option value="dbms">Database Management Systems</option>
+        <option value="oops">Object-Oriented Programming</option>
+        <option value="de">Digital Electronics</option>
+        <option value="ss">Signals and Systems</option>
+        <option value="ac">Analog Circuits</option>
+        <option value="cs">Communication Systems</option>
+        <option value="mp">Microprocessors</option>
+        <option value="web">Web Technologies</option>
+        <option value="se">Software Engineering</option>
+        <option value="co">Computer Organization</option>
+        <option value="network">Networking</option>
+        <option value="edc">Electronic Devices and Circuits</option>
+        <option value="os">Operating Systems</option>
+    </select>
+
+    <button onclick="recommendBooks()">Get Recommendations</button>
+
+    <div id="results"></div>
+    <script>
+      document.addEventListener("mousemove", function(event) {
+        let circle = document.createElement("div");
+        circle.classList.add("trail");
+        document.body.appendChild(circle);
+
+        let x = event.clientX;
+        let y = event.clientY;
+
+        circle.style.left = `${x}px`;
+        circle.style.top = `${y}px`;
+
+        setTimeout(() => {
+            circle.style.opacity = "0";
+            setTimeout(() => circle.remove(), 300);
+        }, 100);
+    });
+       async function recommendBooks() {
+    const dept = document.getElementById("department").value;
+    const year = parseInt(document.getElementById("year").value);
+    const subject = document.getElementById("subject").value;
+
+    try {
+        const response = await fetch("books.json");
+        const booksArray = await response.json();
+
+        // Find matching books using array.find()
+        const bookEntry = booksArray.find(book => 
+            book.department === dept && book.year === year && book.subject === subject
+        );
+
+        if (bookEntry) {
+            document.getElementById("results").innerHTML = 
+                `<p>Recommended Books:</p><ul>${bookEntry.books.map(book => `<li>${book}</li>`).join('')}</ul>`;
+        } else {
+            document.getElementById("results").innerHTML = "<p>No recommendations found.</p>";
+        }
+    } catch (error) {
+        console.error("Error fetching book data:", error);
+        document.getElementById("results").innerHTML = "<p>Failed to load recommendations.</p>";
+    }
+}
+
+    </script>
+    
+
+</body>
+</html>
