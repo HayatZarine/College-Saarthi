@@ -77,7 +77,7 @@ def get_books(query):
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+    return render_template("library.html")
 
 @app.route('/search', methods=['GET'])
 def search():

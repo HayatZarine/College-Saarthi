@@ -63,6 +63,26 @@
             <li><a href="https://people.engr.tamu.edu/guni/csce421/files/AI_Russell_Norvig.pdf" target="_blank">Artificial Intelligence: A Modern Approach</a></li>
         </ul>
     </div>
-    
+    <h2>Search Library Books</h2>
+    <input type="text" id="searchInput" placeholder="Search books by title..." onkeyup="searchBooks()">
+    <div id="results">
+
+    <script>
+        function searchBooks() {
+            let query = document.getElementById("searchInput").value;
+            if (query.length < 1) {
+                document.getElementById("results").innerHTML = "";
+                return;
+            }
+
+            fetch(`/search?q=${query}`)
+                .then(response => response.json())
+                .then(data => {
+                    let resultDiv = document.getElementById("results");
+                    resultDiv.innerHTML = data.length ? data.map(book => `<p><strong>${book[0]}</strong> by ${book[1]}</p>`).join("") : "<p>No results found</p>";
+                });
+        }
+    </script>
+
 </body>
 </html>
