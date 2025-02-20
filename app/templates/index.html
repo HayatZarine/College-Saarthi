@@ -216,8 +216,76 @@
             color:#25022e;
         }
     </style>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        input { padding: 10px; width: 50%; margin: 20px 0; }
+        #results { margin-top: 20px; }
+    </style>
 </head>
 <body>
+    <h2>Search Library Books</h2>
+    <input type="text" id="searchInput" placeholder="Search books by title..." onkeyup="searchBooks()">
+    <div id="results"></div>
+
+    <script>
+        function searchBooks() {
+            let query = document.getElementById("searchInput").value;
+            if (query.length < 1) {
+                document.getElementById("results").innerHTML = "";
+                return;
+            }
+
+            fetch(`/search?q=${query}`)
+                .then(response => response.json())
+                .then(data => {
+                    let resultDiv = document.getElementById("results");
+                    resultDiv.innerHTML = data.length ? data.map(book => `<p><strong>${book[0]}</strong> by ${book[1]}</p>`).join("") : "<p>No results found</p>";
+                });
+        }
+    </script>
+    <h1>Flask & SQLite Integration</h1>
+
+    <h2>Add User</h2>
+    <input type="text" id="name" placeholder="Enter Name">
+    <input type="email" id="email" placeholder="Enter Email">
+    <button onclick="addUser()">Add User</button>
+
+    <h2>Users List</h2>
+    <button onclick="fetchUsers()">Show Users</button>
+    <ul id="users-list"></ul>
+
+    <script>
+        function addUser() {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+
+            fetch("/add_user", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ name, email })
+            })
+            .then(response => response.json())
+            .then(data => alert(data.message))
+            .catch(error => console.error("Error:", error));
+        }
+
+        function fetchUsers() {
+            fetch("/get_users")
+            .then(response => response.json())
+            .then(users => {
+                const usersList = document.getElementById("users-list");
+                usersList.innerHTML = "";
+                users.forEach(user => {
+                    const li = document.createElement("li");
+                    li.textContent = `${user[1]} (${user[2]})`;
+                    usersList.appendChild(li);
+                });
+            })
+            .catch(error => console.error("Error:", error));
+        }
+    </script>
     
     <div class="cursor-effect"></div>
 
