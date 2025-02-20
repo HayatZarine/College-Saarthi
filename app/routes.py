@@ -1,7 +1,7 @@
 
 
 from flask import request, jsonify, render_template
-from app import app
+from app.app import app
 import json
 
 # Load book data from a JSON file

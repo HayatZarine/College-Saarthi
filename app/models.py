@@ -41,7 +41,7 @@ def get_books(query):
 
 
 
-from app import db
+from app.app import db
 
 class Book(db.Model):
     id = db.Column(db.Integer, primary_key=True)
