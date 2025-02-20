@@ -55,51 +55,52 @@ button {
 
     <script>
         const addFlashcard = () => {
-        const question = document.getElementById("question").value;
-        const answer = document.getElementById("answer").value;
-        const topic = document.getElementById("topic").value;
-    
-        fetch('/add_flashcard', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ question, answer, topic })
-        }).then(res => res.json()).then(data => {
-            alert(data.message);
+    const question = document.getElementById("question").value;
+    const answer = document.getElementById("answer").value;
+    const topic = document.getElementById("topic").value;
+
+    fetch('/add_flashcard', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question, answer, topic })
+    }).then(res => res.json()).then(data => {
+        alert(data.message);
+    });
+};
+
+const fetchFlashcards = () => {
+    const topic = document.getElementById("searchTopic").value;
+
+    fetch(`/get_flashcards/${topic}`)
+    .then(res => res.json())
+    .then(data => {
+        const flashcardsDiv = document.getElementById("flashcards");
+        flashcardsDiv.innerHTML = "";
+        data.forEach(flashcard => {
+            const card = document.createElement("div");
+            card.classList.add("flashcard");
+            card.innerHTML = `
+                <p><strong>Q:</strong> ${flashcard[1]}</p>
+                <p><strong>A:</strong> ${flashcard[2]}</p>
+                <button onclick="updateReview(${flashcard[0]}, 'easy')">Easy</button>
+                <button onclick="updateReview(${flashcard[0]}, 'medium')">Medium</button>
+                <button onclick="updateReview(${flashcard[0]}, 'hard')">Hard</button>
+            `;
+            flashcardsDiv.appendChild(card);
         });
-    };
-    
-    const fetchFlashcards = () => {
-        const topic = document.getElementById("searchTopic").value;
-    
-        fetch(`/get_flashcards/${topic}`)
-        .then(res => res.json())
-        .then(data => {
-            const flashcardsDiv = document.getElementById("flashcards");
-            flashcardsDiv.innerHTML = "";
-            data.forEach(flashcard => {
-                const card = document.createElement("div");
-                card.classList.add("flashcard");
-                card.innerHTML = `
-                    <p><strong>Q:</strong> ${flashcard[1]}</p>
-                    <p><strong>A:</strong> ${flashcard[2]}</p>
-                    <button onclick="updateReview(${flashcard[0]}, 'easy')">Easy</button>
-                    <button onclick="updateReview(${flashcard[0]}, 'medium')">Medium</button>
-                    <button onclick="updateReview(${flashcard[0]}, 'hard')">Hard</button>
-                `;
-                flashcardsDiv.appendChild(card);
-            });
-        });
-    };
-    
-    const updateReview = (id, difficulty) => {
-        fetch(`/review_flashcard/${id}`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ difficulty })
-        }).then(res => res.json()).then(data => {
-            alert(data.message);
-        });
-    };
+    });
+};
+
+const updateReview = (id, difficulty) => {
+    fetch(`/review_flashcard/${id}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ difficulty })
+    }).then(res => res.json()).then(data => {
+        alert(data.message);
+    });
+};
+
     </script>
 </body>
 </html>
