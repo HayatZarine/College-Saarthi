@@ -1,34 +1,31 @@
-from flask import Blueprint, render_template, request, jsonify
-from . import db
-from .models import Book, Flashcard, ToDo
 
-main = Blueprint('main', __name__)
 
-@main.route('/')
-def index():
-    return render_template('index.html')
+from flask import request, jsonify, render_template
+from app import app
+import json
 
-@main.route('/books', methods=['GET'])
-def get_books():
-    books = Book.query.all()
-    return jsonify([{"id": b.id, "title": b.title, "author": b.author} for b in books])
+# Load book data from a JSON file
+def load_books():
+    with open("app/books.json", "r") as file:
+        return json.load(file)
 
-@main.route('/add_flashcard', methods=['POST'])
-def add_flashcard():
-    data = request.json
-    flashcard = Flashcard(question=data['question'], answer=data['answer'])
-    db.session.add(flashcard)
-    db.session.commit()
-    return jsonify({"message": "Flashcard added successfully!"})
+@app.route('/')
+def home():
+    return render_template("book_recommendation.html")  # Ensure this file is in the `templates` folder
 
-@main.route('/todo', methods=['GET', 'POST'])
-def todo():
-    if request.method == 'POST':
-        task = request.json['task']
-        new_task = ToDo(task=task)
-        db.session.add(new_task)
-        db.session.commit()
-        return jsonify({"message": "Task added successfully!"})
-    
-    tasks = ToDo.query.all()
-    return jsonify([{"id": t.id, "task": t.task, "complete": t.complete} for t in tasks])
+@app.route('/search', methods=['GET'],endpoint = 'search_books')
+def search_books():
+    query = request.args.get('query', '').lower()  # Get search query from frontend
+
+    books = load_books()
+
+    # Filter books based on the search query (matching title, author, or subject)
+    filtered_books = [
+        book for book in books
+        if query in book["title"].lower() or query in book["author"].lower() or query in book["subject"].lower()
+    ]
+
+    return jsonify({"books": filtered_books})  # Send results as JSON
+
+
+
