@@ -28,6 +28,8 @@ College Saarthi is a web-based platform designed to assist engineering students 
 - HTML
 - CSS
 - JavaScript
+- Flask
+- SqlAlchemy
 
 ## How to Use
 1. Clone or download this repository.
