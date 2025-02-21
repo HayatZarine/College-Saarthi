@@ -1,0 +1,169 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container for To-Do List */
+.todo-container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 191, 0, 0.5);
+    text-align: center;
+    width: 350px;
+}
+
+h2 {
+    margin-bottom: 15px;
+    color: #ffbf00;
+    text-shadow: 0 0 10px rgba(255, 191, 0, 0.5);
+}
+
+/* Input Field */
+.task-input {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.task-input input {
+    width: 70%;
+    padding: 8px;
+    border: 2px solid #ffbf00;
+    border-radius: 5px;
+    background: black; /* Black background */
+    color: #ffbf00; /* Warm yellow text */
+    font-size: 16px;
+    outline: none;
+}
+
+.task-input input::placeholder {
+    color: rgba(255, 191, 0, 0.7);
+}
+
+.task-input button {
+    padding: 8px 12px;
+    margin-left: 5px;
+    border: none;
+    background-color: #ffbf00;
+    color: #121212;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.task-input button:hover {
+    background-color: #e6a600;
+}
+
+/* List Styles */
+.todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.todo-list li {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Neon Checkbox Styles */
+.checkbox-wrapper {
+    --checkbox-size: 25px;
+    --checkbox-color: #ffbf00;
+    --checkbox-shadow: rgba(255, 191, 0, 0.3);
+    --checkbox-border: rgba(255, 191, 0, 0.7);
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.checkbox-wrapper input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox-wrapper .checkmark {
+    position: relative;
+    width: var(--checkbox-size);
+    height: var(--checkbox-size);
+    border: 2px solid var(--checkbox-border);
+    border-radius: 8px;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px var(--checkbox-shadow);
+    overflow: hidden;
+}
+
+.checkbox-wrapper .checkmark::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--checkbox-color), #ffcc00);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform: scale(0) rotate(-45deg);
+}
+
+.checkbox-wrapper input:checked ~ .checkmark::before {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+}
+
+.checkbox-wrapper .checkmark svg {
+    width: 0;
+    height: 0;
+    color: #1a1a1a;
+    z-index: 1;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+}
+
+.checkbox-wrapper input:checked ~ .checkmark svg {
+    width: 18px;
+    height: 18px;
+    transform: rotate(360deg);
+}
+
+/* Completed Tasks */
+.completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
+/* Delete Button */
+.delete-btn {
+    background: transparent;
+    border: none;
+    color: #ffbf00;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.delete-btn:hover {
+    color: red;
+}
+
+
