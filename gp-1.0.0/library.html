@@ -12,7 +12,6 @@
             margin: 0;
             padding: 0;
             background-image:url(https://cdn.magicdecor.in/com/2024/10/21132141/Soft-Purple-White-Flowers-Wallpaper-Mural-710x488.jpg);
-            
         }
         .container {
             max-width: 800px;
@@ -21,11 +20,16 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        
         }
-        
         h2 {
             color: #6A0DAD;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
         ul {
             list-style-type: none;
@@ -37,7 +41,7 @@
             padding: 10px;
             border-radius: 5px;
         }
-        li:hover{
+        li:hover {
             background: #D8BFD8;
             transform: scale(1.1);
         }
@@ -55,17 +59,15 @@
     <div class="container">
         <h2>Library - Free Books</h2>
         <p>Access free versions of books related to your engineering courses.</p>
-        <ul>
-            <li><a href="https://archive.org/details/AdvancedEngineeringMathematicsKreyszigE.9thEdWiley20061245s" target="_blank">Advanced Engineering Mathematics by Kreyszig E</a></li>
-            <li><a href="https://dl.ojocv.gov.et/admin_/book/a-textbook-of-electrical-technology-volume-i-basic-electrical-engineering-b-l-theraja.pdf" target="_blank">Electrical Technology by B.L Thareja</a></li>
-            <li><a href="https://www.ucg.ac.me/skladiste/blog_44233/objava_64433/fajlovi/Computer%20Networking%20_%20A%20Top%20Down%20Approach,%207th,%20converted.pdf" target="_blank">Computer Networking: A Top-Down Approach</a></li>
-            <li><a href="https://os.ecci.ucr.ac.cr/slides/Abraham-Silberschatz-Operating-System-Concepts-10th-2018.pdf" target="_blank">Operating Systems Concepts</a></li>
-            <li><a href="https://people.engr.tamu.edu/guni/csce421/files/AI_Russell_Norvig.pdf" target="_blank">Artificial Intelligence: A Modern Approach</a></li>
+
+        <!-- Search Bar -->
+        <input type="text" id="searchInput" placeholder="Search books..." onkeyup="searchBooks()">
+        
+        <!-- Search Results -->
+        <ul id="results">
+            <!-- Books will be displayed here -->
         </ul>
     </div>
-    <h2>Search Library Books</h2>
-    <input type="text" id="searchInput" placeholder="Search books by title..." onkeyup="searchBooks()">
-    <div id="results">
 
     <script>
         function searchBooks() {
@@ -79,10 +81,12 @@
                 .then(response => response.json())
                 .then(data => {
                     let resultDiv = document.getElementById("results");
-                    resultDiv.innerHTML = data.length ? data.map(book => `<p><strong>${book[0]}</strong> by ${book[1]}</p>`).join("") : "<p>No results found</p>";
+                    resultDiv.innerHTML = data.length
+                        ? data.map(book => `<li><a href="${book[1]}" target="_blank">${book[0]}</a></li>`).join("")
+                        : "<p>No results found</p>";
                 });
         }
     </script>
-
 </body>
 </html>
+
